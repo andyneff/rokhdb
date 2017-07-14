@@ -14,3 +14,14 @@ services:
       - MYSQL_DATABASE=RokhDB #The linux version. Windows uses rokhdb
     ports:
       - "14002:3306"
+  rokhdb_hd:
+    image: mariadb:10.1.11
+    volumes:
+      - ./mysql_hd.conf:/etc/mysql/conf.d
+      - ./data:/var/lib/mysql
+      - /tmp:/tmp
+    environment:
+      - MYSQL_ROOT_PASSWORD=bM8BSfhqeUsPSKsg
+      - MYSQL_DATABASE=RokhDB #The linux version. Windows uses rokhdb
+    ports:
+      - "14002:3306"

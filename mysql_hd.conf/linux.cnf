@@ -1,0 +1,14 @@
+[mysqld]
+#datadir=/dev/shm/mysql
+#port=14002
+#innodb_io_capacity=600
+#innodb_flush_neighbors=0
+#innodb_flush_neighbor_pages=none
+#innodb_adaptive_flushing=1
+#innodb_adaptive_flushing_method=estimate
+##innodb_buffer_pool_size = 10240M
+##innodb_log_buffer_size = 128M
+innodb-flush-log-at-trx-commit=2
+
+[client-server]
+socket=/tmp/rokh_mysql-14002.sock
