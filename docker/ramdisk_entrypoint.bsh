@@ -12,6 +12,8 @@ if [ -n "$(ls -AU /var/lib/mysql)" ]; then
   cp -ra /var/lib/mysql/* /dev/shm/mysql/
 fi
 
+(sleep 300; /rolling_backup.bsh) &
+
 /docker-entrypoint.sh "${@}"
 
 if [ -n "$(ls -AU /var/lib/mysql)" ]; then
