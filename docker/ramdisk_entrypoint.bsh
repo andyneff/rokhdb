@@ -3,10 +3,18 @@
 set -eu
 
 # Make 
-rm -r /ramdisk/* || :
-cp -ra /var/lib/mysql/* /var/lib/mysql/ || :
+
+if [ -n "$(ls -AU /dev/shm/mysql)" ]; then
+  rm -r /dev/shm/mysql/*
+fi
+
+if [ -n "$(ls -AU /var/lib/mysql)" ]; then
+  cp -ra /var/lib/mysql/* /dev/shm/mysql/
+fi
 
 /docker-entrypoint.sh "${@}"
 
-rm -r /var/lib/mysql/*
+if [ -n "$(ls -AU /var/lib/mysql)" ]; then
+  rm -r /var/lib/mysql/*
+fi
 cp -ra /dev/shm/mysql/* /var/lib/mysql/
