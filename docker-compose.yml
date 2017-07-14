@@ -5,7 +5,7 @@ services:
       context: docker
     image: rokhdb:linux
     volumes:
-      - /dev/shm/mysql:/ramdisk
+      - /dev/shm/mysql:/dev/shm/mysql
       - ./data:/var/lib/mysql
       - ./mysql.conf:/etc/mysql/conf.d
       - /tmp:/tmp

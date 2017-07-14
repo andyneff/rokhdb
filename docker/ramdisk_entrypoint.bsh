@@ -4,9 +4,9 @@ set -eu
 
 # Make 
 rm -r /ramdisk/* || :
-cp -ra /var/lib/mysql/* /ramdisk/ || :
+cp -ra /var/lib/mysql/* /var/lib/mysql/ || :
 
 /docker-entrypoint.sh "${@}"
 
 rm -r /var/lib/mysql/*
-cp -ra /ramdisk/* /var/lib/mysql/
+cp -ra /dev/shm/mysql/* /var/lib/mysql/

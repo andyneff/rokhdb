@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+./Database/mariadb-10.1.11-linux-x86_64/bin/mysql RokhDB --user=root --port $1 --socket /tmp/rokh_mysql-$1.sock --password=bM8BSfhqeUsPSKsg < $2
