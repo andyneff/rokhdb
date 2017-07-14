@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eu
+
+# Make 
+rm -r /ramdisk/* || :
+cp -ra /var/lib/mysql/* /ramdisk/ || :
+
+/docker-entrypoint.sh "${@}"
+
+rm -r /var/lib/mysql/*
+cp -ra /ramdisk/* /var/lib/mysql/

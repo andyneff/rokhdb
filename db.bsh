@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker run -it --rm --name rokhdb -e MYSQL_ROOT_PASSWORD=bM8BSfhqeUsPSKsg -e MYSQL_DATABASE=RokhDB -v /home/andy/rokh/data:/var/lib/mysql -v /home/andy/rokh/mysql.conf:/etc/mysql/conf.d -v /tmp:/tmp -p 14002:3306 mariadb:10.1.11

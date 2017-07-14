@@ -1,0 +1,16 @@
+version: "3.2"
+services:
+  rokhdb:
+    build:
+      context: docker
+    image: rokhdb:linux
+    volumes:
+      - /dev/shm/mysql:/ramdisk
+      - ./data:/var/lib/mysql
+      - ./mysql.conf:/etc/mysql/conf.d
+      - /tmp:/tmp
+    environment:
+      - MYSQL_ROOT_PASSWORD=bM8BSfhqeUsPSKsg
+      - MYSQL_DATABASE=RokhDB #The linux version. Windows uses rokhdb
+    ports:
+      - "14002:3306"

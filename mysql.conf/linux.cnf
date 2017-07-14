@@ -1,0 +1,6 @@
+[mysqld]
+datadir=/dev/shm/mysql
+#port=14002
+
+[client-server]
+socket=/tmp/rokh_mysql-14002.sock
